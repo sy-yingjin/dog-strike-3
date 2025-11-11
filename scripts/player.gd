@@ -15,13 +15,19 @@ func _input(event) -> void:
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * movement_sens))
 		camera_mount.rotate_x(deg_to_rad(-event.relative.y * movement_sens))
-		camera_mount.rotation.x = clamp(camera_mount.rotation.x, deg_to_rad(-90), deg_to_rad(30))
+		camera_mount.rotation.x = clamp(camera_mount.rotation.x, deg_to_rad(-30), deg_to_rad(30))
+	pass
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+		
+	# exit game
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().quit()
+		
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY

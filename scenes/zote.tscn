@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://62d8nlle2suh"]
+
+[ext_resource type="PackedScene" uid="uid://drq12h84fo1vw" path="res://assets/volatile_zoteling.glb" id="1_4b3cn"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_4b3cn")]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1.06358, 0, 0, 0, 1, -0.00545722, -0.137085, 0)
+visible = false
+use_collision = true

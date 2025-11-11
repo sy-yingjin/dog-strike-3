@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvn51y8aho6ic"]
+
+[ext_resource type="PackedScene" uid="uid://nnmrd8wrcoo8" path="res://assets/GLTF/EA_Pumpkin_01b.glb" id="1_xtcb0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8phom"]
+albedo_color = Color(0.984352, 0.334759, 0.400049, 1)
+
+[node name="EA_Pumpkin_01b2" instance=ExtResource("1_xtcb0")]
+
+[node name="EA_Pumpkin_01b" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_8phom")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." index="1"]
+transform = Transform3D(1.95529, 0, 0, 0, 1.8, 0, 0, 0, 2.05766, 0, 1, 0)
+visible = false
+use_collision = true
