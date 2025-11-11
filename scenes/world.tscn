@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ddmtygx0fq1sy"]
+[gd_scene load_steps=15 format=3 uid="uid://ddmtygx0fq1sy"]
 
 [ext_resource type="PackedScene" uid="uid://by3w2qkmvyyrg" path="res://scenes/player.tscn" id="1_0id50"]
 [ext_resource type="Texture2D" uid="uid://b07fr5ioaw6t0" path="res://assets/grids/texture_01.png" id="2_j56u4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cvn51y8aho6ic" path="res://scenes/ea_pumpkin_01b_2.tscn" id="5_fvtpj"]
 [ext_resource type="PackedScene" uid="uid://c3e2nw560mrb6" path="res://scenes/ea_pumpkin_01c_2.tscn" id="6_cusf7"]
 [ext_resource type="PackedScene" uid="uid://62d8nlle2suh" path="res://scenes/zote.tscn" id="6_ok4no"]
+[ext_resource type="PackedScene" uid="uid://c1h8pevylwygl" path="res://assets/lazer_bullet.glb" id="7_8seji"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ei74q"]
 sky_top_color = Color(0.435294, 0.8, 0.768627, 1)
@@ -160,3 +161,6 @@ transform = Transform3D(-0.712108, -0.467253, -0.524, -0.267488, 0.870639, -0.41
 
 [node name="Sketchfab_Scene3" parent="map" instance=ExtResource("6_ok4no")]
 transform = Transform3D(0.99613, 0, 0.0878859, 0, 1, 0, -0.0878859, 0, 0.99613, -6.31256, 0.85918, -22.3026)
+
+[node name="lazer" parent="." instance=ExtResource("7_8seji")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.485093, 1.61903, -6.08777)
