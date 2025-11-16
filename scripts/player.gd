@@ -2,12 +2,15 @@ extends CharacterBody3D
 
 @onready var camera_mount = $camera_mount
 @onready var animation_player: AnimationPlayer = $model/skeleton_mage/AnimationPlayer
-
+@onready var bullet_spawner = $camera_mount/Camera3D/RayCast3D
+# movements 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-
 @export var movement_sens = 0.5
-
+# bullets
+var bullet = load("res://scenes/bullet.tscn")
+var instance
+var shoot = false
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -47,3 +50,15 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+	# shooting
+	if Input.is_action_pressed("shoot"):
+		if shoot == false:
+			shoot = true
+			instance = bullet.instantiate()
+			instance.position = bullet_spawner.global_position
+			instance.transform.basis = bullet_spawner.global_transform.basis
+			get_parent().add_child(instance)
+			# waiting for "reload time"
+			await get_tree().create_timer(0.3).timeout
+			shoot = false

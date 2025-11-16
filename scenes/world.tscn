@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddmtygx0fq1sy"]
+[gd_scene load_steps=14 format=3 uid="uid://ddmtygx0fq1sy"]
 
 [ext_resource type="PackedScene" uid="uid://by3w2qkmvyyrg" path="res://scenes/player.tscn" id="1_0id50"]
 [ext_resource type="Texture2D" uid="uid://b07fr5ioaw6t0" path="res://assets/grids/texture_01.png" id="2_j56u4"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cvn51y8aho6ic" path="res://scenes/ea_pumpkin_01b_2.tscn" id="5_fvtpj"]
 [ext_resource type="PackedScene" uid="uid://c3e2nw560mrb6" path="res://scenes/ea_pumpkin_01c_2.tscn" id="6_cusf7"]
 [ext_resource type="PackedScene" uid="uid://62d8nlle2suh" path="res://scenes/zote.tscn" id="6_ok4no"]
-[ext_resource type="PackedScene" uid="uid://c1h8pevylwygl" path="res://assets/lazer_bullet.glb" id="7_8seji"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ei74q"]
 sky_top_color = Color(0.435294, 0.8, 0.768627, 1)
@@ -124,43 +123,46 @@ material_override = SubResource("StandardMaterial3D_tmopk")
 use_collision = true
 size = Vector3(14.6007, 6.29016, 5)
 
-[node name="EA_Pumpkin_01c6" parent="map" instance=ExtResource("6_cusf7")]
+[node name="EA_Pumpkin_01c6" parent="map" groups=["target"] instance=ExtResource("6_cusf7")]
 physics_interpolation_mode = 1
 transform = Transform3D(-0.845878, 0, -0.533379, 0, 1, 0, 0.533379, 0, -0.845878, 13.462, 5.40074, 28.1067)
 
-[node name="EA_Pumpkin_01c5" parent="map" instance=ExtResource("6_cusf7")]
+[node name="EA_Pumpkin_01c5" parent="map" groups=["target"] instance=ExtResource("6_cusf7")]
 physics_interpolation_mode = 1
 transform = Transform3D(-0.87945, 0, 0.475993, 0, 1, 0, -0.475993, 0, -0.87945, -7.58405, 6.33903, 28.0012)
 
-[node name="EA_Pumpkin_01c2" parent="map" instance=ExtResource("6_cusf7")]
+[node name="EA_Pumpkin_01c2" parent="map" groups=["target"] instance=ExtResource("6_cusf7")]
 physics_interpolation_mode = 1
 transform = Transform3D(0.284818, 0, 0.958581, 0, 1, 0, -0.958581, 0, 0.284818, -7.73836, -0.0249043, 2.46024)
 
-[node name="EA_Pumpkin_01c4" parent="map" instance=ExtResource("6_cusf7")]
+[node name="EA_Pumpkin_01c4" parent="map" groups=["target"] instance=ExtResource("6_cusf7")]
 physics_interpolation_mode = 1
 transform = Transform3D(2.77204, 0, -8.56247, 0, 9, 0, 8.56247, 0, 2.77204, 41.0984, -0.988297, -4.84098)
 
-[node name="EA_Pumpkin_01c3" parent="map" instance=ExtResource("6_cusf7")]
+[node name="EA_Pumpkin_01c3" parent="map" groups=["target"] instance=ExtResource("6_cusf7")]
 physics_interpolation_mode = 1
 transform = Transform3D(2.74325, 0, -1.21432, 0, 3, 0, 1.21432, 0, 2.74325, 3.94812, -0.247074, -32.4911)
+health = 6
 
-[node name="EA_Pumpkin_01b2" parent="map" instance=ExtResource("5_fvtpj")]
+[node name="EA_Pumpkin_01b2" parent="map" groups=["target"] instance=ExtResource("5_fvtpj")]
 transform = Transform3D(0.556876, 0, -0.830596, 0, 1, 0, 0.830596, 0, 0.556876, 3.8921, 0.831009, -4.38821)
+health = 3
 
-[node name="EA_Pumpkin_01b4" parent="map" instance=ExtResource("5_fvtpj")]
-transform = Transform3D(-1.72799, 0, 1.00701, 0, 2, 0, -1.00701, 0, -1.72799, -2.44127, -0.383407, 8.35759)
+[node name="EA_Pumpkin_01b4" parent="map" groups=["target"] instance=ExtResource("5_fvtpj")]
+transform = Transform3D(-1.72799, 0, 1.00701, 0, 2, 0, -1.00701, 0, -1.72799, -2.44127, -0.383407, 12.8569)
+health = 7
 
-[node name="EA_Pumpkin_01b3" parent="map" instance=ExtResource("5_fvtpj")]
+[node name="EA_Pumpkin_01b3" parent="map" groups=["target"] instance=ExtResource("5_fvtpj")]
 transform = Transform3D(0.553988, 0, 0.832525, 0, 1, 0, -0.832525, 0, 0.553988, -6.80812, -0.191704, -3.92461)
+health = 4
 
-[node name="Sketchfab_Scene2" parent="map" instance=ExtResource("6_ok4no")]
+[node name="zote" parent="map" instance=ExtResource("6_ok4no")]
 transform = Transform3D(0.612785, -0.557476, -0.560102, 0.313235, 0.822057, -0.475506, 0.725519, 0.11594, 0.678365, 9.60894, 5.63927, -14.4961)
+health = 3
 
-[node name="Sketchfab_Scene" parent="map" instance=ExtResource("6_ok4no")]
+[node name="zote2" parent="map" instance=ExtResource("6_ok4no")]
 transform = Transform3D(-0.712108, -0.467253, -0.524, -0.267488, 0.870639, -0.412841, 0.649116, -0.153824, -0.744974, 6.06692, 5.33816, 6.41582)
+health = 4
 
-[node name="Sketchfab_Scene3" parent="map" instance=ExtResource("6_ok4no")]
+[node name="zote3" parent="map" instance=ExtResource("6_ok4no")]
 transform = Transform3D(0.99613, 0, 0.0878859, 0, 1, 0, -0.0878859, 0, 0.99613, -6.31256, 0.85918, -22.3026)
-
-[node name="lazer" parent="." instance=ExtResource("7_8seji")]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.485093, 1.61903, -6.08777)
