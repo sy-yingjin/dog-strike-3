@@ -3,6 +3,7 @@ extends CharacterBody3D
 @onready var camera_mount = $camera_mount
 @onready var animation_player: AnimationPlayer = $model/skeleton_mage/AnimationPlayer
 @onready var bullet_spawner = $camera_mount/Camera3D/RayCast3D
+@onready var camera = $camera_mount/Camera3D
 # movements 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -57,7 +58,25 @@ func _physics_process(delta: float) -> void:
 			shoot = true
 			instance = bullet.instantiate()
 			instance.position = bullet_spawner.global_position
-			instance.transform.basis = bullet_spawner.global_transform.basis
+
+			# Cast a ray from camera center (crosshair) to find target point
+			var space_state = get_world_3d().direct_space_state
+			var camera_pos = camera.global_position
+			var camera_forward = -camera.global_transform.basis.z
+
+			var query = PhysicsRayQueryParameters3D.create(camera_pos, camera_pos + camera_forward * 1000)
+			var result = space_state.intersect_ray(query)
+
+			var target_point
+			if result:
+				target_point = result.position
+			else:
+				# If no collision, aim far forward from camera
+				target_point = camera_pos + camera_forward * 100
+
+			var bullet_direction = (target_point - instance.position).normalized()
+			instance.transform.basis = Basis.looking_at(bullet_direction)
+
 			get_parent().add_child(instance)
 			# waiting for "reload time"
 			await get_tree().create_timer(0.3).timeout
